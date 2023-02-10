@@ -1,0 +1,238 @@
+{
+  "name": "figma-smart-truncate",
+  "version": "1.0.0",
+  "description": "Changes the case of text in selected nodes to 'Sentence case', 'Title Case', 'UPPER CASE' or 'lower case'.",
+  "author": "Ozgur Gunes",
+  "authorEmail": "o.gunes@gmail.com",
+  "homepage": "https://github.com/ozgurgunes/Figma-Smart-Truncate",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozgurgunes/Figma-Smart-Truncate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ozgurgunes/Figma-Smart-Truncate/issues"
+  },
+  "scripts": {
+    "build": "build-figma-plugin --typecheck --minify",
+    "watch": "build-figma-plugin --typecheck --watch"
+  },
+  "figma-plugin": {
+    "name": "Smart Truncate",
+    "id": "smart-truncate",
+    "editorType": [
+      "figma"
+    ],
+    "menu": [
+      {
+        "name": "Last Characters",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateLastCharacters"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "Last Words",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateLastWords"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "Last Characters w/o Cutting Words",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateLastSpaces"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      "-",
+      {
+        "name": "First Characters",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateFirstCharacters"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "First Words",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateFirstWords"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "First Characters w/o Cutting Words",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateFirstSpaces"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      "-",
+      {
+        "name": "Middle Characters",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateMiddleCharacters"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "Middle Words",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateMiddleWords"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "Middle Characters w/o Cutting Words",
+        "main": {
+          "src": "main.ts",
+          "handler": "truncateMiddleSpaces"
+        },
+        "parameters": [
+          {
+            "name": "Length",
+            "key": "keepLength",
+            "description": "How many characters will be kept.",
+            "allowFreeform": true
+          },
+          {
+            "name": "Ellipsis (…)",
+            "key": "ellipsis",
+            "description": "What will be replaced with removed text.",
+            "allowFreeform": true,
+            "optional": true
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "@create-figma-plugin/utilities": "^2.2.0"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "^2.2.0",
+    "@create-figma-plugin/tsconfig": "^2.2.0",
+    "@figma/plugin-typings": "^1.58.0",
+    "typescript": "*"
+  }
+}
